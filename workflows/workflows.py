@@ -7,7 +7,7 @@ from datetime import datetime
 from airflow import DAG
 from airflow.exceptions import AirflowException
 
-from utils.dags.workflows.operators import Operator
+from workflows.operators import Operator
 
 
 class DeclarativeOperatorsMetaclass(type):

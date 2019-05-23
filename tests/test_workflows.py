@@ -1,14 +1,13 @@
 import re
 import inspect
 import unittest
+import workflows
 
 from collections import OrderedDict
 from datetime import datetime
 
 from airflow import DAG
 from airflow.models import BaseOperator
-
-from utils.dags import workflows
 
 
 def python_callable(**kwargs):

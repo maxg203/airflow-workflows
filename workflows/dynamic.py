@@ -1,4 +1,4 @@
-from utils.dags.workflows.workflows import Workflow
+from workflows import Workflow
 
 
 def create_workflow(name, *operators, **attrs):

@@ -1,7 +1,7 @@
 import unittest
+import workflows
 
 from datetime import datetime
-from utils.dags import workflows
 
 
 class BaseTestWorkflow(workflows.Workflow):

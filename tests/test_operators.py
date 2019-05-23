@@ -6,7 +6,7 @@ from airflow.operators.slack_operator import (
     SlackAPIPostOperator as AirflowSlackAPIPostOperator
 )
 
-from utils.dags.workflows.operators import (
+from workflows.operators import (
     Operator,
     PythonOperator,
     BashOperator,
