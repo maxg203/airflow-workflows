@@ -1,4 +1,4 @@
-from workflows import Workflow
+from workflows.workflows import Workflow
 
 
 def create_workflow(name, *operators, **attrs):
