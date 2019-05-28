@@ -2,6 +2,10 @@
 Workflows are a cleaner way of implementing DAGs using a Django-inspired class-based syntax.
 
 ## Simple Example
+Let's create a single Airflow DAG, whose name is a camelcased version of the class name, and whose operator dependencies are in the order they are defined.
+
+There is an option to override the `dependencies` method to customise the dependency chain for your use case.
+
 ```python
 import workflows
 
@@ -23,9 +27,11 @@ globals()[ExampleWorkflow.DAG.dag_id] = ExampleWorkflow.DAG
 
 
 ## Dynamic DAG Example
+Let's create (in this case three) DAGs, created dynamically and based on the `ExampleWorkflow` class as implemented above. In other words, they will share the same DAG metadata (so schedule in this case).
 
 ```python
-from dags import workflows
+import workflows
+
 workflow_names = [
     'Test1',
     'Test2',
@@ -35,7 +41,7 @@ workflow_names = [
 for workflow in workflow_names:
     WorkflowClass = workflows.create_workflow(
         workflow,
-        base=OpticalExpressWorkflow,
+        base=ExampleWorkflow,
     )
     globals()[WorkflowClass.DAG.dag_id] = WorkflowClass.DAG
 ```
