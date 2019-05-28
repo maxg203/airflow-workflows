@@ -42,7 +42,7 @@ generate_post_data()
   "target_commitish": "$branch",
   "name": "$version",
   "body": "$text",
-  "draft": true,
+  "draft": false,
   "prerelease": false
 }
 EOF
