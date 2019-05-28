@@ -2,6 +2,11 @@ from workflows.workflows import Workflow
 
 
 def create_workflow(name, *operators, **attrs):
+    """
+    Dynamically create workflow classes (and hence DAGs) based
+    on the implementation of any given parent workflow class.
+    """
+
     workflow = attrs.get('workflow')
     if not workflow:
         workflow = Workflow

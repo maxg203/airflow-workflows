@@ -185,5 +185,5 @@ class Workflow(BaseWorkflow, metaclass=DeclarativeOperatorsMetaclass):
     Use metaclass magic that provides the declarative syntactic sugar.
 
     Changes intended to be made to the Workflow API should be made to this
-    class' base class preferentially instead of this class
+    class' base class preferentially instead of this class.
     """

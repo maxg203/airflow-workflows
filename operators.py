@@ -10,7 +10,7 @@ from airflow.executors.sequential_executor import SequentialExecutor
 class RelaxedSubDagOperator(AirflowSubDagOperator):
     """
     Workaround Airflow SubDags requiring a parent DAG to be specified at
-    subdag instantiation
+    subdag instantiation.
     """
 
     def __init__(self, subdag, executor=SequentialExecutor(), *args, **kwargs):
@@ -35,22 +35,28 @@ class Operator(object):
 
 
 class PythonOperator(Operator):
-    """Workflow compatible Python operator for Airflow."""
+    """Workflows API compatible Python operator for Airflow."""
 
     def get_airflow_operator(self):
         return AirflowPythonOperator(*self.args, **self.kwargs)
 
 
 class BashOperator(Operator):
+    """Workflows API compatible bash operator for Airflow."""
+
     def get_airflow_operator(self):
         return AirflowBashOperator(*self.args, **self.kwargs)
 
 
 class SlackAPIPostOperator(Operator):
+    """Workflows API compatible Slack operator for Airflow."""
+
     def get_airflow_operator(self):
         return AirflowSlackAPIPostOperator(*self.args, **self.kwargs)
 
 
 class SubDagOperator(Operator):
+    """Workflows API compatible SubDag operator for Airflow."""
+
     def get_airflow_operator(self):
         return RelaxedSubDagOperator(*self.args, **self.kwargs)

@@ -4,7 +4,7 @@ Workflows are a cleaner way of implementing DAGs using a Django-inspired class-b
 ## Simple Example
 Let's create a single Airflow DAG, whose name is a camelcased version of the class name, and whose operator dependencies are in the order they are defined.
 
-There is an option to override the `dependencies` method to customise the dependency chain for your use case.
+There is an option to override the default [`dependencies`](https://github.com/maxg203/airflow-workflows/blob/master/workflows.py#L165) method implementation to customise the dependency chain for your use case.
 
 ```python
 import workflows
